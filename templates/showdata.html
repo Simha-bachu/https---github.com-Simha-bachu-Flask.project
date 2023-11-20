@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Data Information</title>
+    <!-- Add relevant head elements -->
+</head>
+<body>
+    <h1>Data Information</h1>
+    <button onclick="showDataType()">Show Data Type</button>
+    <script>
+        function showDataType() {
+            // JavaScript to toggle the display of data types
+            var x = document.getElementById("dataTypeInfo");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+    <div id="dataTypeInfo" style="display:none;">
+        {% for column in column_info %}
+            <p>Column: {{ column.col }}, Type: {{ column.dtype }}, Size: {{ column.size }}, Category: {{ column.var_type }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

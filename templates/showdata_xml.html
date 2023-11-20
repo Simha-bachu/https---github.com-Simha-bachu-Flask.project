@@ -1,0 +1,41 @@
+{% extends 'upload_csv.html' %}
+<!DOCTYPE html>
+{% block content %}
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+      }
+      th, td {
+        border: 1px solid rgb(126, 1, 1);
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>File Information</h2>
+    <table>    
+      <thead>           
+        <tr>
+          <th>Name</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for col_info in column_info %}
+          <tr>
+            <td>{{ col_info['name'] }}</td>
+            <td>{{ col_info['text'] }}</td>
+            <!--td>{{ col_info['size'] }}</td>
+            <td>{{ col_info['missing'] }}</td-->
+          </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>    
+  </body>
+</html>
+{% endblock %}
